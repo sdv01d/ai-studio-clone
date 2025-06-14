@@ -14,24 +14,30 @@ const features = [
     desc: "Generate high quality text to speech with Gemini",
     tag: "New",
     icon: SpeakerWaveIcon,
+    image: undefined,
   },
   {
     title: "Live audio-to-audio dialog",
     desc: "Try Gemini's natural, real-time dialog with audio and video inputs",
     tag: "New",
     icon: ChatBubbleLeftRightIcon,
+    image: undefined,
   },
   {
     title: "Native image generation",
     desc: "Interleaved text-and-image generation with the new Gemini 2.0 Flash",
     tag: "",
     icon: PhotoIcon,
+    image:
+      "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?auto=format&fit=facearea&w=256&h=256&q=80",
   },
   {
     title: "Explore and co-develop apps",
     desc: "See Gemini in action with interactive, open source examples",
     tag: "",
     icon: RocketLaunchIcon,
+    image:
+      "https://www.google.com/images/branding/googlelogo/2x/googlelogo_light_color_92x30dp.png",
   },
 ];
 
@@ -39,7 +45,7 @@ export default function MainContent() {
   const [input, setInput] = useState("");
   const isInputEmpty = input.trim() === "";
   return (
-    <main className="flex-1 flex flex-col items-center justify-center gap-8 p-12 overflow-y-hidden bg-[#1E1E1E] rounded-3xl">
+    <main className="flex-1 min-h-0 flex flex-col items-center justify-center gap-8 overflow-y-auto bg-[#1E1E1E] rounded-3xl">
       <div className="w-full flex flex-col items-center justify-center">
         <h1
           className="text-3xl font-medium mb-8 text-center bg-gradient-to-r from-[#b1c5ff] to-[#076eff] bg-clip-text text-transparent"
@@ -78,27 +84,39 @@ export default function MainContent() {
         </div>
       </div>
       <div className="w-full max-w-3xl">
-        <h2 className="text-2xl font-semibold mb-6 text-[#E2E2E5]">
-          What's new
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <h2 className="text-sm font-bold mb-3 text-[#A8ABB4]">What's new</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {features.map((f, i) => (
             <div
               key={i}
-              className="bg-[#18181a] rounded-3xl p-7 flex flex-col gap-2 border border-[#232326] hover:shadow-xl transition-shadow duration-200 cursor-pointer group"
+              className="relative flex items-center bg-[#35363A] rounded-2xl px-3 py-3 gap-3 border-none shadow-none"
             >
-              <div className="flex items-center gap-3 mb-2">
-                <f.icon className="h-10 w-10 text-[#A8ABB4] rounded-full bg-[#232326] p-2 group-hover:bg-[#E2E2E5] group-hover:text-[#232326] transition-colors" />
-                <span className="font-bold text-lg text-[#E2E2E5]">
-                  {f.title}
-                </span>
-                {f.tag && (
-                  <span className="ml-2 text-xs bg-[#A8ABB4] text-[#232326] px-2 py-0.5 rounded">
-                    {f.tag}
-                  </span>
+              <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-[#232326] flex items-center justify-center overflow-hidden">
+                {f.image ? (
+                  <img
+                    src={f.image}
+                    alt={f.title}
+                    className="w-full h-full object-cover rounded-xl"
+                  />
+                ) : (
+                  <f.icon className="h-10 w-10 text-[#A8ABB4]" />
                 )}
               </div>
-              <div className="text-[#A8ABB4]">{f.desc}</div>
+              <div className="flex-1 min-w-0">
+                <div className="flex items-center gap-2 mb-1.5">
+                  <span className="font-bold text-sm text-white leading-tight">
+                    {f.title}
+                  </span>
+                  {f.tag && (
+                    <span className="absolute top-2 right-3 text-xs bg-[#9CCCFE] text-black px-1 py-0.5 rounded-lg font-semibold">
+                      {f.tag}
+                    </span>
+                  )}
+                </div>
+                <div className="text-[#A8ABB4] text-sm leading-snug font-normal">
+                  {f.desc}
+                </div>
+              </div>
             </div>
           ))}
         </div>
