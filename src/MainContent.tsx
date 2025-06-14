@@ -39,7 +39,7 @@ export default function MainContent() {
   const [input, setInput] = useState("");
   const isInputEmpty = input.trim() === "";
   return (
-    <main className="flex-1 flex flex-col items-center justify-center gap-8 p-12 overflow-y-auto bg-[#1E1E1E] rounded-3xl">
+    <main className="flex-1 flex flex-col items-center justify-center gap-8 p-12 overflow-y-hidden bg-[#1E1E1E] rounded-3xl">
       <div className="w-full flex flex-col items-center justify-center">
         <h1
           className="text-3xl font-medium mb-8 text-center bg-gradient-to-r from-[#b1c5ff] to-[#076eff] bg-clip-text text-transparent"
