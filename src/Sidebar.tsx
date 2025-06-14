@@ -22,36 +22,30 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <aside
-      className={`bg-[#18181a] flex flex-col p-3 border-r border-[#232326] rounded-l-3xl transition-all duration-300 ${
-        collapsed ? "w-20" : "w-64"
+      className={`bg-[#181818] flex flex-col p-3 rounded-l-3xl transition-all duration-300 ${
+        collapsed ? "w-20" : "w-52"
       }`}
     >
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex items-center justify-between mb-8 mt-4">
         <div
-          className={`text-2xl font-bold text-blue-400 transition-opacity duration-200 ${
+          className={`text-2xl font-medium text-[#D0E3FE] transition-opacity duration-200 ${
             collapsed ? "opacity-0 w-0" : "opacity-100 w-auto"
           }`}
         >
           Google AI Studio
         </div>
-        <button
-          onClick={() => setCollapsed(!collapsed)}
-          className="p-2 rounded-full hover:bg-[#232326] focus:outline-none"
-        >
-          <Bars3Icon className="h-6 w-6 text-gray-400" />
-        </button>
       </div>
       <nav className="flex flex-col gap-2">
         {navItems.map(({ label, icon: Icon }) => (
           <button
             key={label}
-            className={`flex items-center gap-3 px-4 py-2 rounded-full hover:bg-[#232326] transition-colors font-medium focus:outline-none text-gray-200 ${
+            className={`flex items-center gap-3 px-4 py-2 rounded-full hover:bg-[#E2E2E5] hover:text-[#232326] transition-colors font-medium focus:outline-none text-[#A8ABB4] focus:bg-[#E2E2E5] focus:text-[#232326] ${
               collapsed ? "justify-center" : ""
             }`}
           >
-            <Icon className="h-6 w-6 text-blue-400" />
+            <Icon className="h-5 w-5 text-[#A8ABB4] group-hover:text-[#232326]" />
             <span
-              className={`transition-opacity duration-200 ${
+              className={`transition-opacity duration-200 text-sm ${
                 collapsed ? "opacity-0 w-0" : "opacity-100 w-auto"
               }`}
             >
@@ -61,7 +55,7 @@ export default function Sidebar() {
         ))}
       </nav>
       <div
-        className={`mt-auto text-xs text-gray-500 pt-8 transition-opacity duration-200 ${
+        className={`mt-auto text-xs text-[#A8ABB4] pt-8 transition-opacity duration-200 ${
           collapsed ? "opacity-0 w-0" : "opacity-100 w-auto"
         }`}
       >

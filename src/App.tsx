@@ -3,6 +3,7 @@ import "./App.css";
 import Sidebar from "./Sidebar.tsx";
 import Header from "./Header.tsx";
 import MainContent from "./MainContent.tsx";
+import RightSidebar from "./RightSidebar.tsx";
 
 function App() {
   return (
@@ -10,7 +11,10 @@ function App() {
       <Sidebar />
       <div className="flex flex-col flex-1">
         <Header />
-        <MainContent />
+        <div className="flex flex-1 flex-row">
+          <MainContent />
+          <RightSidebar />
+        </div>
       </div>
     </div>
   );
