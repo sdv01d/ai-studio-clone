@@ -1,9 +1,5 @@
 import React from "react";
-import {
-  UserCircleIcon,
-  DocumentTextIcon,
-  Squares2X2Icon,
-} from "@heroicons/react/24/outline";
+import { UserCircleIcon, Cog6ToothIcon } from "@heroicons/react/24/outline";
 
 export default function Header() {
   return (
@@ -13,8 +9,7 @@ export default function Header() {
         <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-2.5 rounded-full font-semibold">
           Get API key
         </button>
-        <Squares2X2Icon className="h-7 w-7 text-blue-400 rounded-full hover:bg-[#232326] p-1" />
-        <DocumentTextIcon className="h-7 w-7 text-blue-400 rounded-full hover:bg-[#232326] p-1" />
+        <Cog6ToothIcon className="h-7 w-7 text-blue-400 rounded-full hover:bg-[#232326] p-1" />
         <UserCircleIcon className="h-10 w-10 text-gray-400 rounded-full hover:bg-[#232326] p-1" />
       </div>
     </header>
