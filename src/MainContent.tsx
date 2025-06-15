@@ -6,6 +6,13 @@ import {
   RocketLaunchIcon,
   CommandLineIcon,
   ArrowTurnDownLeftIcon,
+  ClipboardIcon,
+  ChevronLeftIcon,
+  ChevronRightIcon,
+  ShareIcon,
+  ArrowPathIcon,
+  EllipsisVerticalIcon,
+  ArrowDownTrayIcon,
 } from "@heroicons/react/24/outline";
 
 const features = [
@@ -41,11 +48,49 @@ const features = [
   },
 ];
 
-export default function MainContent() {
+interface MainContentProps {
+  rightPanel: number | null;
+}
+
+export default function MainContent({ rightPanel }: MainContentProps) {
   const [input, setInput] = useState("");
   const isInputEmpty = input.trim() === "";
   return (
-    <main className="flex-1 min-h-0 flex flex-col items-center justify-center gap-8 overflow-y-auto bg-[#1E1E1E] rounded-3xl">
+    <main
+      className={`flex-1 min-h-0 flex flex-col items-center justify-start gap-4 overflow-y-auto bg-[#1E1E1E] rounded-3xl transition-all duration-300 ease-in-out ${
+        rightPanel !== null ? "mr-0 lg:mr-2" : ""
+      }`}
+    >
+      {/* Toolbar with section name and icons */}
+      <div className="w-full mx-auto pt-4 px-6 flex items-center justify-between">
+        <div className="text-lg font-semibold text-[#E2E2E5]">Chat Prompt</div>
+        <div className="flex items-center gap-3">
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <ClipboardIcon className="h-4 w-4" />
+          </button>
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <ChevronLeftIcon className="h-4 w-4" />
+          </button>
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <ChevronRightIcon className="h-4 w-4" />
+          </button>
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <ShareIcon className="h-4 w-4" />
+          </button>
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <ArrowDownTrayIcon className="h-4 w-4" />
+          </button>
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <ArrowPathIcon className="h-4 w-4" />
+          </button>
+          <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
+            <EllipsisVerticalIcon className="h-4 w-4" />
+          </button>
+        </div>
+      </div>
+      <div className="w-full mx-auto mb-4 px-6">
+        <div className="border-b border-[#343434] w-full" />
+      </div>
       <div className="w-full flex flex-col items-center justify-center">
         <h1
           className="text-3xl font-medium mb-8 text-center bg-gradient-to-r from-[#b1c5ff] to-[#076eff] bg-clip-text text-transparent"
@@ -83,7 +128,7 @@ export default function MainContent() {
           </div>
         </div>
       </div>
-      <div className="w-full max-w-3xl">
+      <div className="w-full max-w-3xl mt-4">
         <h2 className="text-sm font-bold mb-3 text-[#A8ABB4]">What's new</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {features.map((f, i) => (
