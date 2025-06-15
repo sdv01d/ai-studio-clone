@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import "./App.css";
-import Sidebar from "./Sidebar.tsx";
-import Header from "./Header.tsx";
-import MainContent from "./MainContent.tsx";
-import RightSidebar from "./RightSidebar.tsx";
-import RightPanel from "./RightPanel.tsx";
+import Sidebar from "./components/Sidebar.tsx";
+import Header from "./components/Header.tsx";
+import RightSidebar from "./components/RightSidebar.tsx";
+import RightPanel from "./components/RightPanel.tsx";
+import StreamPage from "./pages/StreamPage.tsx";
+import GenerateMediaPage from "./pages/GenerateMediaPage.tsx";
+import BuildPage from "./pages/BuildPage.tsx";
+import ComingSoonPage from "./pages/ComingSoonPage.tsx";
+import ChatPage from "./pages/ChatPage.tsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
@@ -20,47 +24,21 @@ function App() {
               <Routes>
                 <Route
                   path="/chat"
-                  element={<MainContent rightPanel={rightPanel} />}
+                  element={<ChatPage rightPanel={rightPanel} />}
                 />
                 <Route
                   path="/stream"
-                  element={
-                    <div className="flex-1 flex items-center justify-center text-2xl text-[#A8ABB4]">
-                      Stream Page
-                    </div>
-                  }
+                  element={<StreamPage rightPanel={rightPanel} />}
                 />
-                <Route
-                  path="/generate-media"
-                  element={
-                    <div className="flex-1 flex items-center justify-center text-2xl text-[#A8ABB4]">
-                      Generate Media Page
-                    </div>
-                  }
-                />
-                <Route
-                  path="/build"
-                  element={
-                    <div className="flex-1 flex items-center justify-center text-2xl text-[#A8ABB4]">
-                      Build Page
-                    </div>
-                  }
-                />
+                <Route path="/generate-media" element={<GenerateMediaPage />} />
+                <Route path="/build" element={<BuildPage />} />
                 <Route
                   path="/history"
-                  element={
-                    <div className="flex-1 flex items-center justify-center text-2xl text-[#A8ABB4]">
-                      History Page
-                    </div>
-                  }
+                  element={<ComingSoonPage title="History" />}
                 />
                 <Route
                   path="/enable-saving"
-                  element={
-                    <div className="flex-1 flex items-center justify-center text-2xl text-[#A8ABB4]">
-                      Enable Saving Page
-                    </div>
-                  }
+                  element={<ComingSoonPage title="Enable saving" />}
                 />
                 <Route path="/" element={<Navigate to="/chat" replace />} />
               </Routes>
