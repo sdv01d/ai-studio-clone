@@ -14,7 +14,7 @@ export default function WhatsNew({
   return (
     <div className="fixed bottom-24 left-0 w-full z-40 w-full max-w-lg mt-4 px-4 md:max-w-3xl sm:static sm:bg-transparent sm:border-0 sm:px-0 sm:pb-0 sm:pt-0">
       <h2 className="text-sm font-bold mb-3 text-[#A8ABB4]">{title}</h2>
-      <div className="flex overflow-x-auto gap-3 snap-x xs:grid xs:grid-cols-2 xs:gap-2 xs:overflow-visible xs:snap-none md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:snap-none">
+      <div className="grid grid-rows-2 grid-flow-col gap-3 overflow-x-auto snap-x md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:snap-none">
         {features.map((f, i) => (
           <div
             key={i}
