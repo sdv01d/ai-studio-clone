@@ -23,7 +23,7 @@ export default function InputSection({
   const [input, setInput] = useState("");
   const isInputEmpty = input.trim() === "";
   return (
-    <div className="fixed bottom-0 left-0 w-full z-40 bg-[#18181a] px-2 pb-2 pt-2 border-t border-[#232326] sm:static sm:bg-transparent sm:border-0 sm:px-0 sm:pb-0 sm:pt-0">
+    <div className="fixed bottom-0 left-0 w-full z-40 bg-[#18181a] px-4 pb-2 pt-2 border-t border-[#232326] sm:static sm:bg-transparent sm:border-0 sm:px-0 sm:pb-0 sm:pt-0">
       <div className="w-full max-w-3xl flex flex-col items-center mx-auto">
         <div className="relative w-full flex items-center">
           <input
