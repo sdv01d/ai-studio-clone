@@ -8,14 +8,15 @@ import {
   CloudArrowDownIcon,
   Bars3Icon,
 } from "@heroicons/react/24/outline";
+import { NavLink } from "react-router-dom";
 
 const navItems = [
-  { label: "Chat", icon: ChatBubbleLeftRightIcon },
-  { label: "Stream", icon: PlayCircleIcon },
-  { label: "Generate Media", icon: PhotoIcon },
-  { label: "Build", icon: WrenchScrewdriverIcon },
-  { label: "History", icon: ClockIcon },
-  { label: "Enable saving", icon: CloudArrowDownIcon },
+  { label: "Chat", icon: ChatBubbleLeftRightIcon, to: "/chat" },
+  { label: "Stream", icon: PlayCircleIcon, to: "/stream" },
+  { label: "Generate Media", icon: PhotoIcon, to: "/generate-media" },
+  { label: "Build", icon: WrenchScrewdriverIcon, to: "/build" },
+  { label: "History", icon: ClockIcon, to: "/history" },
+  { label: "Enable saving", icon: CloudArrowDownIcon, to: "/enable-saving" },
 ];
 
 export default function Sidebar() {
@@ -36,22 +37,29 @@ export default function Sidebar() {
         </div>
       </div>
       <nav className="flex flex-col gap-2">
-        {navItems.map(({ label, icon: Icon }) => (
-          <button
+        {navItems.map(({ label, icon: Icon, to }) => (
+          <NavLink
             key={label}
-            className={`flex items-center gap-3 px-4 py-2 rounded-full hover:bg-[#E2E2E5] hover:text-[#232326] transition-colors font-medium focus:outline-none text-[#A8ABB4] focus:bg-[#E2E2E5] focus:text-[#232326] ${
-              collapsed ? "justify-center" : ""
-            }`}
+            to={to}
+            className={({ isActive }) =>
+              `flex items-center gap-3 px-4 py-2 rounded-full transition-colors font-medium hover:bg-[#343434] hover:text-[#E2E2E5] focus:outline-none text-[#A8ABB4] text-sm ${
+                collapsed ? "justify-center" : ""
+              } ${
+                isActive
+                  ? "bg-[#343434] text-[#E2E2E5] focus:bg-[#343434] focus:text-[#E2E2E5]"
+                  : "focus:bg-[#343434] focus:text-[#E2E2E5]"
+              }`
+            }
           >
-            <Icon className="h-5 w-5 text-[#A8ABB4] group-hover:text-[#232326]" />
+            <Icon className="h-5 w-5" />
             <span
-              className={`transition-opacity duration-200 text-sm ${
+              className={`transition-opacity duration-200 ${
                 collapsed ? "opacity-0 w-0" : "opacity-100 w-auto"
               }`}
             >
               {label}
             </span>
-          </button>
+          </NavLink>
         ))}
       </nav>
       <div
