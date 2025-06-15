@@ -7,6 +7,7 @@ import {
   ClockIcon,
   CloudArrowDownIcon,
   Bars3Icon,
+  ChevronLeftIcon,
 } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
@@ -23,7 +24,7 @@ export default function Sidebar() {
   const [collapsed, setCollapsed] = useState(false);
   return (
     <aside
-      className={`bg-[#181818] flex flex-col p-3 rounded-l-3xl transition-all duration-300 ${
+      className={`relative bg-[#181818] flex flex-col p-3 rounded-l-3xl transition-all duration-300 ${
         collapsed ? "w-20" : "w-52"
       }`}
     >
@@ -69,6 +70,19 @@ export default function Sidebar() {
       >
         This model is not stable and may not be suitable for production use.
       </div>
+      {/* Floating caret button */}
+      <button
+        className="absolute -right-3 bottom-8 w-8 h-8 flex items-center justify-center rounded-full bg-[#1E1E1E] hover:bg-[#343434] transition-colors z-30"
+        onClick={() => setCollapsed((c) => !c)}
+        aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
+        style={{ boxShadow: "0 2px 8px 0 rgba(0,0,0,0.15)" }}
+      >
+        <ChevronLeftIcon
+          className={`h-5 w-5 text-[#A8ABB4] transition-transform duration-200 ${
+            collapsed ? "rotate-180" : ""
+          }`}
+        />
+      </button>
     </aside>
   );
 }
