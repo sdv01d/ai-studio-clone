@@ -1,4 +1,5 @@
 import React from "react";
+import { XMarkIcon } from "@heroicons/react/24/outline";
 
 interface RightPanelProps {
   rightPanel: number | null;
@@ -7,7 +8,7 @@ interface RightPanelProps {
 
 const panelContent = [
   {
-    label: "Settings",
+    label: "Run Settings",
     content: "Settings panel content goes here.",
   },
   {
@@ -31,19 +32,19 @@ export default function RightPanel({
     >
       {rightPanel !== null && (
         <>
-          <div className="flex items-center justify-between px-6 py-4 border-b border-[#343434]">
-            <span className="text-lg font-semibold text-[#E2E2E5]">
-              {panelContent[rightPanel].label} Panel
+          <div className="flex items-center justify-between px-4 py-3">
+            <span className="text-sm font-semibold text-[#E2E2E5]">
+              {panelContent[rightPanel].label}
             </span>
             <button
               className="p-2 rounded-full hover:bg-[#343434] text-[#A8ABB4]"
               onClick={() => setRightPanel(null)}
               aria-label="Close panel"
             >
-              ×
+              <XMarkIcon className="h-5 w-5" />
             </button>
           </div>
-          <div className="flex-1 p-6 text-[#A8ABB4]">
+          <div className="flex-1 px-4 py-2 text-[#A8ABB4]">
             {panelContent[rightPanel].content}
           </div>
         </>

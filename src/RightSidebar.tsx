@@ -23,13 +23,15 @@ export default function RightSidebar({
       {icons.map(({ icon: Icon, label }, idx) => (
         <button
           key={label}
-          className={`w-10 h-10 flex items-center justify-center rounded-full bg-transparent hover:bg-[#E2E2E5] focus:bg-[#E2E2E5] transition-colors group ${
-            rightPanel === idx ? "ring-2 ring-[#7A98E6]" : ""
+          className={`w-10 h-10 flex items-center justify-center rounded-full bg-transparent hover:bg-[#343434] transition-colors group ${
+            rightPanel === idx
+              ? "focus:bg-[#343434] focus:text-[#E2E2E5]"
+              : "text-[#A8ABB4]"
           }`}
           onClick={() => setRightPanel(rightPanel === idx ? null : idx)}
           aria-label={label}
         >
-          <Icon className="h-7 w-7 text-[#A8ABB4] group-hover:text-[#232326] group-focus:text-[#232326]" />
+          <Icon className="h-5 w-5 group-hover:text-[#E2E2E5]" />
         </button>
       ))}
     </aside>
