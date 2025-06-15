@@ -14,11 +14,11 @@ export default function WhatsNew({
   return (
     <div className="w-full max-w-3xl mt-4">
       <h2 className="text-sm font-bold mb-3 text-[#A8ABB4]">{title}</h2>
-      <div className={gridClassName}>
+      <div className="flex overflow-x-auto gap-3 snap-x md:grid md:grid-cols-2 md:gap-3 md:overflow-visible md:snap-none">
         {features.map((f, i) => (
           <div
             key={i}
-            className="relative flex items-center bg-[#35363A] rounded-2xl px-3 py-3 gap-3 border-none shadow-none"
+            className="relative flex items-center bg-[#35363A] rounded-2xl px-3 py-3 gap-3 border-none shadow-none min-w-[85vw] max-w-xs snap-center md:min-w-0 md:max-w-none"
           >
             <div className="flex-shrink-0 w-16 h-16 rounded-xl bg-[#232326] flex items-center justify-center overflow-hidden">
               {f.image ? (

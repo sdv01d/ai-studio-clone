@@ -20,7 +20,7 @@ interface PageLayoutProps {
 function GradientTitle({ title }: { title: string }) {
   return (
     <h1
-      className="text-3xl font-medium mt-12 mb-8 text-center bg-gradient-to-r from-[#b1c5ff] to-[#076eff] bg-clip-text text-transparent"
+      className="text-2xl md:text-3xl font-medium mt-8 mb-6 md:mt-12 md:mb-8 text-center bg-gradient-to-r from-[#b1c5ff] to-[#076eff] bg-clip-text text-transparent"
       style={{
         backgroundImage:
           "linear-gradient(90deg, rgb(177, 197, 255) 0%, rgb(7, 110, 255) 100%)",
@@ -52,7 +52,14 @@ export default function PageLayout({
     >
       {toolbarTitle && (
         <>
-          <Toolbar title={toolbarTitle} icons={toolbarIcons} />
+          <Toolbar
+            title={toolbarTitle}
+            icons={
+              Array.isArray(toolbarIcons)
+                ? toolbarIcons
+                : React.Children.toArray(toolbarIcons)
+            }
+          />
           <div className="w-full mx-auto px-6">
             <div className="border-b border-[#343434] w-full" />
           </div>

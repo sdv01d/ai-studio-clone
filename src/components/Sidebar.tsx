@@ -8,7 +8,10 @@ import {
   CloudArrowDownIcon,
   Bars3Icon,
   ChevronLeftIcon,
+  XMarkIcon,
   InformationCircleIcon,
+  KeyIcon,
+  ArrowTopRightOnSquareIcon,
 } from "@heroicons/react/24/outline";
 import { NavLink } from "react-router-dom";
 
@@ -36,6 +39,85 @@ function StudioLogo() {
         <path d="M20 8c-2.5-6-12-6-8 2 2 4 8 4 8-2z" fill="#fff" />
         <circle cx="20" cy="20" r="2.5" fill="#fff" />
       </svg>
+    </div>
+  );
+}
+
+export function MobileSidebarDrawer({
+  open,
+  onClose,
+}: {
+  open: boolean;
+  onClose: () => void;
+}) {
+  return (
+    <div
+      className={`fixed inset-0 z-50 sm:hidden ${
+        open ? "" : "pointer-events-none"
+      }`}
+    >
+      {/* Backdrop */}
+      <div
+        className={`absolute inset-0 bg-black bg-opacity-40 transition-opacity duration-200 ${
+          open ? "opacity-100" : "opacity-0"
+        }`}
+        onClick={onClose}
+      />
+      {/* Drawer */}
+      <aside
+        className={`absolute top-0 left-0 h-full w-72 bg-[#181818] flex flex-col p-4 transition-transform duration-300 ${
+          open ? "translate-x-0" : "-translate-x-full"
+        }`}
+        style={{ minHeight: "100vh" }}
+      >
+        <button
+          className="absolute top-4 right-4 p-2 rounded-full bg-[#232326] text-[#A8ABB4]"
+          onClick={onClose}
+          aria-label="Close sidebar"
+        >
+          <XMarkIcon className="h-6 w-6" />
+        </button>
+        <div className="flex items-center justify-center w-full mb-6 mt-2 min-h-[40px]">
+          <StudioLogo />
+        </div>
+        <nav className="flex flex-col gap-2 w-full mb-6">
+          {navItems.map(({ label, icon: Icon, to }) => (
+            <NavLink
+              key={label}
+              to={to}
+              className={({ isActive }) =>
+                `flex items-center gap-3 px-4 py-2 rounded-full transition-colors font-medium hover:bg-[#343434] hover:text-[#E2E2E5] focus:outline-none text-[#A8ABB4] text-sm ${
+                  isActive ? "bg-[#343434] text-[#E2E2E5]" : ""
+                }`
+              }
+              onClick={onClose}
+            >
+              <Icon className="h-5 w-5" />
+              <span>{label}</span>
+            </NavLink>
+          ))}
+        </nav>
+        <div className="flex flex-col gap-3 mb-6">
+          <button className="flex items-center gap-2 bg-[#444548] hover:bg-[#5a5b5e] text-white px-3 py-2 rounded-full font-semibold text-sm w-fit">
+            <KeyIcon className="h-4 w-4" />
+            Get API key
+          </button>
+          <span className="font-bold text-sm text-white">Studio</span>
+          <span className="text-[#A8ABB4] text-sm">Dashboard</span>
+          <span className="text-[#A8ABB4] text-sm flex items-center gap-1">
+            Documentation
+            <ArrowTopRightOnSquareIcon className="h-4 w-4 inline-block" />
+          </span>
+        </div>
+        <div className="flex-1" />
+        <div className="flex items-center justify-center w-full mb-2">
+          <img
+            src="https://randomuser.me/api/portraits/men/32.jpg"
+            alt="User"
+            className="h-12 w-12 rounded-full object-cover border border-[#232326]"
+          />
+        </div>
+      </aside>
     </div>
   );
 }
@@ -86,7 +168,6 @@ export default function Sidebar() {
         ))}
       </nav>
       <div className="flex-1" />
-      {/* Info section bottom */}
       <div className="w-full flex flex-col items-center mb-4">
         {collapsed ? (
           <button
@@ -101,7 +182,6 @@ export default function Sidebar() {
           </div>
         )}
       </div>
-      {/* Floating caret button */}
       <button
         className="absolute -right-3 bottom-20 w-10 h-8 flex items-center justify-center rounded-3xl bg-[#1E1E1E] hover:bg-[#343434] transition-colors z-30"
         onClick={() => setCollapsed((c) => !c)}
