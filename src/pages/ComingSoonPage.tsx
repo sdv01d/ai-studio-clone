@@ -4,7 +4,7 @@ import Toolbar from "../components/Toolbar.tsx";
 export default function ComingSoonPage({ title }: { title: string }) {
   return (
     <main className="flex-1 min-h-0 flex flex-col items-center justify-start gap-4 overflow-y-auto bg-[#1E1E1E] rounded-3xl transition-all duration-300 ease-in-out">
-      <Toolbar title={title} icons={null} />
+      <Toolbar title={title} icons={[]} />
       <div className="w-full mx-auto mb-4 px-6">
         <div className="border-b border-[#343434] w-full" />
       </div>

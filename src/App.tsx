@@ -10,6 +10,7 @@ import BuildPage from "./pages/BuildPage.tsx";
 import ComingSoonPage from "./pages/ComingSoonPage.tsx";
 import ChatPage from "./pages/ChatPage.tsx";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { SettingsConfig } from "./components/RightPanel.tsx";
 
 function App() {
   const [rightPanel, setRightPanel] = useState<number | null>(null);
@@ -37,7 +38,7 @@ function App() {
               className="flex-1 bg-black bg-opacity-40"
               onClick={() => setMobileRightDrawer(null)}
             />
-            <div className="w-64 bg-[#232326] h-full flex flex-col p-4">
+            <div className="w-64 bg-[#232326] h-full flex flex-col p-4 overflow-y-auto">
               <button
                 className="self-end mb-4 p-2 rounded-full bg-[#232326] text-[#A8ABB4]"
                 onClick={() => setMobileRightDrawer(null)}
@@ -45,7 +46,7 @@ function App() {
                 <span className="text-lg">×</span>
               </button>
               {/* Render right drawer content based on mobileRightDrawer index */}
-              {mobileRightDrawer === 0 && <div>Settings panel (mobile)</div>}
+              {mobileRightDrawer === 0 && <SettingsConfig />}
               {mobileRightDrawer === 1 && <div>Apps panel (mobile)</div>}
             </div>
           </div>

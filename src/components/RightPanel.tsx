@@ -31,7 +31,7 @@ function Toggle({
   );
 }
 
-function SettingsConfig() {
+export function SettingsConfig() {
   const [thinkingMode, setThinkingMode] = useState(false);
   const [structuredOutput, setStructuredOutput] = useState(false);
   const [codeExecution, setCodeExecution] = useState(false);

@@ -3,16 +3,10 @@ import PageLayout from "../PageLayout.tsx";
 import InputSection from "../components/InputSection.tsx";
 import {
   ClipboardIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
-  ShareIcon,
-  ArrowDownTrayIcon,
-  ArrowPathIcon,
-  EllipsisVerticalIcon,
+  CodeBracketIcon,
   MicrophoneIcon,
   VideoCameraIcon,
   ComputerDesktopIcon,
-  AdjustmentsHorizontalIcon,
 } from "@heroicons/react/24/outline";
 
 const toolbarIcons = (
@@ -21,22 +15,7 @@ const toolbarIcons = (
       <ClipboardIcon className="h-4 w-4" />
     </button>
     <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ChevronLeftIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ChevronRightIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ShareIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ArrowDownTrayIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ArrowPathIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <EllipsisVerticalIcon className="h-4 w-4" />
+      <CodeBracketIcon className="h-4 w-4" />
     </button>
   </>
 );

@@ -25,6 +25,22 @@ export default function InputSection({
   return (
     <div className="fixed bottom-0 left-0 w-full z-40 bg-[#18181a] px-4 pb-2 pt-2 border-t border-[#232326] sm:static sm:bg-transparent sm:border-0 sm:px-0 sm:pb-0 sm:pt-0">
       <div className="w-full max-w-3xl flex flex-col items-center mx-auto">
+        {/* Mobile: chips above input, Desktop: chips below input */}
+        {chips && chips.length > 0 && (
+          <div className="flex gap-3 mb-4 sm:hidden">
+            {chips.map((chip, idx) => (
+              <button
+                key={chip.label}
+                className="group flex items-center gap-2 px-3 py-2 rounded-full bg-[#13171F] border-2 border-[#7A98E6] border-opacity-50 text-[#E2E2E5] font-semibold text-sm transition-all duration-200 hover:border-[#87A9FF] hover:border-opacity-100"
+                onClick={chip.onClick}
+                disabled={chip.disabled}
+              >
+                {chip.icon}
+                {chip.label}
+              </button>
+            ))}
+          </div>
+        )}
         <div className="relative w-full flex items-center">
           <input
             className="w-full px-6 py-5 pr-16 sm:pr-24 rounded-full bg-[#2E2E2E] border border-[#232326] text-[#A8ABB4] focus:text-[#ffffff] focus:outline-none text-sm transition-colors placeholder-[#A8ABB4]"
@@ -54,8 +70,9 @@ export default function InputSection({
             </span>
           </button>
         </div>
+        {/* Desktop: chips below input */}
         {chips && chips.length > 0 && (
-          <div className="flex gap-3 mt-6">
+          <div className="hidden sm:flex gap-3 mt-6">
             {chips.map((chip, idx) => (
               <button
                 key={chip.label}

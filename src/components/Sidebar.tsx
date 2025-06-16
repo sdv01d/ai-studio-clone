@@ -65,21 +65,14 @@ export function MobileSidebarDrawer({
       />
       {/* Drawer */}
       <aside
-        className={`absolute top-0 left-0 h-full w-72 bg-[#181818] flex flex-col p-4 transition-transform duration-300 ${
+        className={`absolute top-0 left-0 h-full w-56 bg-[#181818] flex flex-col p-4 transition-transform duration-300 ${
           open ? "translate-x-0" : "-translate-x-full"
         }`}
         style={{ minHeight: "100vh" }}
       >
-        <button
-          className="absolute top-4 right-4 p-2 rounded-full bg-[#232326] text-[#A8ABB4]"
-          onClick={onClose}
-          aria-label="Close sidebar"
-        >
-          <XMarkIcon className="h-6 w-6" />
-        </button>
-        <div className="flex items-center justify-center w-full mb-6 mt-2 min-h-[40px]">
-          <StudioLogo />
-        </div>
+        <span className="text-2xl font-medium text-[#D0E3FE] transition-opacity duration-200 opacity-100 w-auto pb-8">
+          Google AI Studio
+        </span>
         <nav className="flex flex-col gap-2 w-full mb-6">
           {navItems.map(({ label, icon: Icon, to }) => (
             <NavLink

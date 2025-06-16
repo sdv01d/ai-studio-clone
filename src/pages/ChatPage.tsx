@@ -5,14 +5,12 @@ import {
   PhotoIcon,
   ChatBubbleLeftRightIcon,
   RocketLaunchIcon,
-  CommandLineIcon,
-  ArrowTurnDownLeftIcon,
+  CodeBracketIcon,
   ClipboardIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
   ShareIcon,
   ArrowPathIcon,
-  EllipsisVerticalIcon,
   ArrowDownTrayIcon,
 } from "@heroicons/react/24/outline";
 
@@ -55,10 +53,7 @@ const toolbarIcons = (
       <ClipboardIcon className="h-4 w-4" />
     </button>
     <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ChevronLeftIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <ChevronRightIcon className="h-4 w-4" />
+      <CodeBracketIcon className="h-4 w-4" />
     </button>
     <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
       <ShareIcon className="h-4 w-4" />
@@ -68,9 +63,6 @@ const toolbarIcons = (
     </button>
     <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
       <ArrowPathIcon className="h-4 w-4" />
-    </button>
-    <button className="p-2 rounded-full hover:bg-[#232326] text-[#A8ABB4]">
-      <EllipsisVerticalIcon className="h-4 w-4" />
     </button>
   </>
 );
