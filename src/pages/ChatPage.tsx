@@ -7,8 +7,6 @@ import {
   RocketLaunchIcon,
   CodeBracketIcon,
   ClipboardIcon,
-  ChevronLeftIcon,
-  ChevronRightIcon,
   ShareIcon,
   ArrowPathIcon,
   ArrowDownTrayIcon,
@@ -72,8 +70,6 @@ export default function ChatPage({
 }: {
   rightPanel: number | null;
 }) {
-  const [input, setInput] = useState("");
-  const isInputEmpty = input.trim() === "";
   return (
     <PageLayout
       toolbarTitle="Chat Prompt"
