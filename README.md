@@ -1,6 +1,8 @@
 # ai-studio-clone
 
-A pixel-perfect Google AI Studio homepage clone built with React and Tailwind CSS.
+A pixel-perfect Google AI Studio homepage clone built with React and Tailwind CSS. 
+
+Click [https://silver-piroshki-bc5de7.netlify.app](here) to view the application.
 
 ## Getting Started
 
